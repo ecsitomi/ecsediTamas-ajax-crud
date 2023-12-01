@@ -27,10 +27,10 @@ setupCounter(document.querySelector('#counter')) */
 
 //ALAP VÉGE!
 
+//import "./urlap.js"
 const url="https://retoolapi.dev/KSKxiJ/sor";
 
 document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!!! AZÉRT NEM TÖLT BE
-                                                              // Valószínűleg a tablazatIde -nél lehet a gond...
   /*const beolvasasIde=document.getElementById("beolvasasIde");
   beolvasasIde.innerHTML=`
     <table>
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!
             <th>Kiszállítva</th>
           </tr>
         </thead>
-        <tbody id="tablazatIde">
+        <tbody id="tablazatIde"> // Valószínűleg a tablazatIde -nél lehet a gond...
         </tbody>
       </table>
   `;*/
@@ -74,5 +74,22 @@ document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!
       tablazatIde.appendChild(tablazatSor);
     });
   });
+
+  //Űrlap itt kezdődik
+  const megrendelo=document.getElementById("megrendelo").value;
+  const email=document.getElementById("email").value;
+  const bankkartya=document.getElementById("bankkartya").value;
+  const telepules=document.getElementById("telepules").value;
+  const kiszallitva=document.getElementById("kiszallitva").value;
+
+  formNulla();
+
+  function formNulla() {
+    document.getElementById("megrendelo").value="";
+    document.getElementById("email").value="";
+    document.getElementById("bankkartya").value="";
+    document.getElementById("telepules").value="";
+    document.getElementById("kiszallitva").value="";
+  };
 });
 
