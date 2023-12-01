@@ -27,25 +27,26 @@ setupCounter(document.querySelector('#counter')) */
 
 //ALAP VÉGE!
 
-import './style.css'
+const url="https://retoolapi.dev/KSKxiJ/sor";
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("beolvasasIde").innerHTML=`
-  <table>
-      <thead>
-        <tr>
-          <th>Megrendelő</th>
-          <th>Email</th>
-          <th>Bankkártya</th>
-          <th>Település</th>
-          <th>Kiszállítva</th>
-        </tr>
-      </thead>
-      <tbody id="tablazatIde">
-      </tbody>
-    </table>
-  `;
-  const url="https://retoolapi.dev/KSKxiJ/sor";
+document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!!! AZÉRT NEM TÖLT BE
+                                                              // Valószínűleg a tablazatIde -nél lehet a gond...
+  /*const beolvasasIde=document.getElementById("beolvasasIde");
+  beolvasasIde.innerHTML=`
+    <table>
+        <thead>
+          <tr>
+            <th>Megrendelő</th>
+            <th>Email</th>
+            <th>Bankkártya</th>
+            <th>Település</th>
+            <th>Kiszállítva</th>
+          </tr>
+        </thead>
+        <tbody id="tablazatIde">
+        </tbody>
+      </table>
+  `;*/
   const tablazatIde=document.getElementById("tablazatIde");
   fetch(url).then(httpResponse => httpResponse.json())
   .then(responseBody => {
