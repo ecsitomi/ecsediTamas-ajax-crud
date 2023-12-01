@@ -1,4 +1,6 @@
-import './style.css'
+//ALAP MAIN.JS TARTALOM
+
+/* import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
@@ -21,4 +23,16 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
+setupCounter(document.querySelector('#counter')) */
+
+//ALAP VÉGE!
+
+document.addEventListener("DOMContentLoaded", () => {
+  const url="https://retoolapi.dev/anO0Nz/data";
+  const beolvasasIde=document.getElementById("beolvasasIde");
+  betoltes(beolvasas, url);
+});
+
+function beolvasas(beolvasasIde,url){
+  const tartalom=fetch(url)
+};
