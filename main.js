@@ -30,9 +30,15 @@ setupCounter(document.querySelector('#counter')) */
 document.addEventListener("DOMContentLoaded", () => {
   const url="https://retoolapi.dev/anO0Nz/data";
   const beolvasasIde=document.getElementById("beolvasasIde");
-  betoltes(beolvasas, url);
-});
+  betoltes(beolvasasIde, url);
+}); //az oldal betöltésekor meghatározom, hogy honnan hova akarok az index.html-be betölteni vmit
 
-function beolvasas(beolvasasIde,url){
+function betoltes(beolvasasIde,url){ //a honnan hova folyamatba, az url-ről (retool api) lekérem az adatokat egy változóba és megírom a megjelenítő html kódot
   const tartalom=fetch(url)
+  console.log(tartalom)
+  document.querySelector('#tablazatIde').innerHTML = `
+    <!--Ide jön a táblázat-->
+
+  `;
+  fetch(url).then(httpResponse => httpResponse.json())
 };
