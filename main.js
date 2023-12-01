@@ -28,7 +28,21 @@ setupCounter(document.querySelector('#counter')) */
 //ALAP VÉGE!
 
 document.addEventListener("DOMContentLoaded", () => {
-  const beolvasasIde=document.getElementById("beolvasasIde");
+  document.querySelector("#beolvasasIde").innerHTML=`
+  <table>
+      <thead>
+        <tr>
+          <th>Megrendelő</th>
+          <th>Email</th>
+          <th>Bankkártya</th>
+          <th>Település</th>
+          <th>Kiszállítva</th>
+        </tr>
+      </thead>
+      <tbody id="tablazatIde">
+      </tbody>
+    </table>
+  `
   const url="https://retoolapi.dev/wmZXyp/data";
   const tablazatIde=document.getElementById("tablazatIde");
   fetch(url).then(httpResponse => httpResponse.json())
@@ -55,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tablazatSor.appendChild(telepulesTableData);
       tablazatSor.appendChild(kiszallitvaTableData);
       tablazatIde.appendChild(tablazatSor);
-
     });
   });
 
