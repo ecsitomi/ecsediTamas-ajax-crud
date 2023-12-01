@@ -28,17 +28,36 @@ setupCounter(document.querySelector('#counter')) */
 //ALAP VÉGE!
 
 document.addEventListener("DOMContentLoaded", () => {
-  const url="https://retoolapi.dev/anO0Nz/data";
   const beolvasasIde=document.getElementById("beolvasasIde");
-  betoltes(beolvasasIde, url);
+  const url="https://retoolapi.dev/wmZXyp/data";
+  const tablazatIde=document.getElementById("tablazatIde");
+  fetch(url).then(httpResponse => httpResponse.json())
+  .then(responseBody => {
+    tablazatIde.innerHTML="";
+    responseBody.forEach(sor => {
+      const tablazatSor=document.createElement("tr");
+      const idTableData=document.createElement("td");
+      const megrendeloTableData=document.createElement("td");
+      const emailTableData=document.createElement("td");
+      const bankkartyaTableData=document.createElement("td");
+      const telepulesTableData=document.createElement("td");
+      const kiszallitvaTableData=document.createElement("td");
+      idTableData.textContent=sor.id;
+      megrendeloTableData=sor.megrendelo;
+      emailTableData=sor.email;
+      bankkartyaTableData=sor.bankkartya;
+      telepulesTableData=sor.telepules;
+      kiszallitvaTableData=sor.kiszallitva;
+      tablazatSor.appendChild(idTableData);
+      tablazatSor.appendChild(megrendeloTableData);
+      tablazatSor.appendChild(emailTableData);
+      tablazatSor.appendChild(bankkartyaTableData);
+      tablazatSor.appendChild(telepulesTableData);
+      tablazatSor.appendChild(kiszallitvaTableData);
+      tablazatIde.appendChild(tablazatSor);
+
+    });
+  });
+
 }); //az oldal betöltésekor meghatározom, hogy honnan hova akarok az index.html-be betölteni vmit
 
-function betoltes(beolvasasIde,url){ //a honnan hova folyamatba, az url-ről (retool api) lekérem az adatokat egy változóba és megírom a megjelenítő html kódot
-  const tartalom=fetch(url)
-  console.log(tartalom)
-  document.querySelector('#tablazatIde').innerHTML = `
-    <!--Ide jön a táblázat-->
-
-  `;
-  fetch(url).then(httpResponse => httpResponse.json())
-};
