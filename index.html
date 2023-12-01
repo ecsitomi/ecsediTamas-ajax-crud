@@ -7,6 +7,7 @@
     <title>Ecsedi Tamás AJAX CRUD</title>
   </head>
   <body>
+
     <div id="beolvasIde"></div>
       <table>
         <thead>
@@ -22,6 +23,18 @@
         <tbody id="tablazatIde">
         </tbody>
       </table>
+
+      <section id="urlap">
+        <h2>"Megrendelés kiszállítva?" Űrlap</h2>
+        <input type="text" name="megrendelo" placeholder="Megrendelő">
+        <input type="email" id="email" placeholder="Email">
+        <input type="number" name="bankkartya" placeholder="Bankkártya">
+        <input type="text" name="telepules" placeholder="Település">
+        <input type="checkbox" name="kiszallitva" placeholder="Kiszállítva">
+        <input type="submit" value="Beküldés">
+        <p>Pipálja be, ha a megrendelés kiszállításra került.</p>
+
+      </section>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
