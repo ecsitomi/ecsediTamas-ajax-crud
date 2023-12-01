@@ -28,8 +28,8 @@ setupCounter(document.querySelector('#counter')) */
 //ALAP VÉGE!
 
 //import "./urlap.js"
-const url="https://retoolapi.dev/KSKxiJ/sor";
 
+const url="https://retoolapi.dev/KSKxiJ/sor";
 document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!!! AZÉRT NEM TÖLT BE
   /*const beolvasasIde=document.getElementById("beolvasasIde");
   beolvasasIde.innerHTML=`
@@ -47,6 +47,10 @@ document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!
         </tbody>
       </table>
   `;*/
+  listaz();
+});
+
+function listaz(){
   const tablazatIde=document.getElementById("tablazatIde");
   fetch(url).then(httpResponse => httpResponse.json())
   .then(responseBody => {
@@ -73,23 +77,63 @@ document.addEventListener("DOMContentLoaded", () => { // ITT VAN VMI HIBA!!!!!!!
       tablazatSor.appendChild(kiszallitvaTableData);
       tablazatIde.appendChild(tablazatSor);
     });
+    //ChatGPT-adta meg
+  const urlap = document.getElementById("urlap");
+
+  urlap.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const maxId = Math.max(...responseBody.map((sor) => sor.id));
+    const newId = maxId + 1;
+    bekuld(event, newId);
+    });
   });
+};
 
   //Űrlap itt kezdődik
+//const urlap=document.getElementById("urlap");
+
+//urlap.addEventListener("submit", bekuld);
+
+function bekuld(event, newId){
+  event.preventDefault();
   const megrendelo=document.getElementById("megrendelo").value;
   const email=document.getElementById("email").value;
   const bankkartya=document.getElementById("bankkartya").value;
   const telepules=document.getElementById("telepules").value;
   const kiszallitva=document.getElementById("kiszallitva").value;
-
-  formNulla();
-
-  function formNulla() {
-    document.getElementById("megrendelo").value="";
-    document.getElementById("email").value="";
-    document.getElementById("bankkartya").value="";
-    document.getElementById("telepules").value="";
-    document.getElementById("kiszallitva").value="";
+  const sor = {
+    megrendelo: megrendelo,
+    email: email,
+    bankkartya: bankkartya,
+    telepules: telepules,
+    kiszallitva: kiszallitva,
+    //id: idTableData+1 //az űrlap az ID nem kérdezi, korábbi funkcióban az ID meg van határozva, azt próbálom használni
+    id: newId,
   };
-});
+  console.log(sor);
+  console.log(JSON.stringify(sor));
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(sor),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.ok) {
+      formNulla();
+      listaz(); // Frissítse a táblázatot az új adatokkal
+    }
+  });
+}
+
+formNulla(); //lenullázni az ürlapot
+
+function formNulla() {
+  document.getElementById("megrendelo").value="";
+  document.getElementById("email").value="";
+  document.getElementById("bankkartya").value="";
+  document.getElementById("telepules").value="";
+  document.getElementById("kiszallitva").value="";
+};
+//});
 
