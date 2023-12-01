@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <tbody id="tablazatIde">
       </tbody>
     </table>
-  `
-  const url="https://retoolapi.dev/wmZXyp/data";
+  `;
+  const url="https://retoolapi.dev/KSKxiJ/sor";
   const tablazatIde=document.getElementById("tablazatIde");
   fetch(url).then(httpResponse => httpResponse.json())
   .then(responseBody => {
@@ -57,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const telepulesTableData=document.createElement("td");
       const kiszallitvaTableData=document.createElement("td");
       idTableData.textContent=sor.id;
-      megrendeloTableData=sor.megrendelo;
-      emailTableData=sor.email;
-      bankkartyaTableData=sor.bankkartya;
-      telepulesTableData=sor.telepules;
-      kiszallitvaTableData=sor.kiszallitva;
+      megrendeloTableData.textContent=sor.megrendelo;
+      emailTableData.textContent=sor.email;
+      bankkartyaTableData.textContent=sor.bankkartya;
+      telepulesTableData.textContent=sor.telepules;
+      kiszallitvaTableData.textContent=sor.kiszallitva;
       tablazatSor.appendChild(idTableData);
       tablazatSor.appendChild(megrendeloTableData);
       tablazatSor.appendChild(emailTableData);
