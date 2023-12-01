@@ -27,8 +27,10 @@ setupCounter(document.querySelector('#counter')) */
 
 //ALAP VÉGE!
 
+import './style.css'
+
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#beolvasasIde").innerHTML=`
+  document.getElementById("beolvasasIde").innerHTML=`
   <table>
       <thead>
         <tr>
@@ -71,6 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
       tablazatIde.appendChild(tablazatSor);
     });
   });
-
-}); //az oldal betöltésekor meghatározom, hogy honnan hova akarok az index.html-be betölteni vmit
+});
 
