@@ -135,5 +135,6 @@ function formNulla() {
   document.getElementById("telepules").value="";
   document.getElementById("kiszallitva").value="";
 };
+
 //});
 
