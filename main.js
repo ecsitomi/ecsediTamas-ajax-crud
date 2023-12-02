@@ -100,7 +100,7 @@ function bekuld(event, newId){
   const email=document.getElementById("email").value;
   const bankkartya=document.getElementById("bankkartya").value;
   const telepules=document.getElementById("telepules").value;
-  const kiszallitva=document.getElementById("kiszallitva").value;
+  const kiszallitva=document.getElementById("kiszallitva").checked;
   const sor = {
     megrendelo: megrendelo,
     email: email,
